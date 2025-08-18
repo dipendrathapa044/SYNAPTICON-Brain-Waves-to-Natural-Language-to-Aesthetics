@@ -19,3 +19,9 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Note on Sensitive Artifacts:
+This repository intentionally does not include trained model weights or EEG datasets.
+These artifacts involve sensitive personal data and are withheld to protect privacy
+and to align with the project’s neuro‑rights goals. Please contact the author for
+ethics‑reviewed collaborations.
