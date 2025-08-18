@@ -14,10 +14,16 @@
 ## 1) Overview
 
 **What this system does:**  
-- Presents sentences full‑screen and records synchronized EEG windows.  
-- Converts raw CSV sessions into fixed‑length, filtered tensors.  
-- Trains an **EEG→Text** model (1D CNN encoder → Transformer decoder‑only LM head).  
-- Runs **real‑time** inference with a trained checkpoint while rendering sentences on‑screen.
+SYNAPTICON is a research prototype exploring closed-loop brain–computer interaction through language. The system combines real-time EEG acquisition, signal preprocessing, and deep learning models to investigate how neural activity can be mapped onto natural language representations.
+
+The workflow consists of four main stages:
+
+- **Stimulus presentation & EEG recording**: Participants are shown sentences full-screen in a timed sequence while EEG data is collected in parallel. Each trial produces a labeled 10-second neural recording window aligned with the presented text.
+- **Data preprocessing**: Raw EEG streams are filtered (notch + band-pass), padded or truncated to a consistent length, and packaged into compressed .npz tensors. This ensures clean, uniform input for model training.
+- **EEG→Text modeling**: A custom neural architecture encodes the multichannel EEG window with a stack of 1D CNN layers, projects it into a latent sequence with positional embeddings, and conditions a Transformer decoder-only language model to predict the corresponding text tokens.
+- **Live inference loop**: A trained checkpoint can be deployed in real time. As new EEG signals are recorded, the system preprocesses them on the fly and attempts to decode the participant’s “neural response” back into text, while synchronizing with the visual stimulus display.
+
+This codebase therefore demonstrates the full pipeline: from human-subject data acquisition, to signal cleaning and representation, to training a generative decoder, and finally deploying a closed-loop system for online inference. While experimental and exploratory, it provides a foundation for research into cognitive–AI co-adaptation, interpretability of neural signals, and the ethics of neurotechnology.
 
 ---
 
